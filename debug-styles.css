@@ -1,0 +1,60 @@
+/**
+ * Debug CSS styles for use with babel-plugin-debug-source
+ * Add this to your project in development mode only
+ */
+
+/* Show debug outline on hover */
+*[data-at]:hover {
+  outline: 2px dashed rgba(255, 0, 0, 0.5) !important;
+  outline-offset: 2px !important;
+  position: relative;
+}
+
+/* Add component info tooltip on hover */
+*[data-at]:hover::after {
+  content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ')';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Different colors for different types of components */
+*[data-is="div"]:hover {
+  outline-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+*[data-is="button"]:hover {
+  outline-color: rgba(0, 0, 255, 0.5) !important;
+}
+
+*[data-is="span"]:hover, 
+*[data-is="p"]:hover, 
+*[data-is="h1"]:hover, 
+*[data-is="h2"]:hover, 
+*[data-is="h3"]:hover, 
+*[data-is="h4"]:hover, 
+*[data-is="h5"]:hover, 
+*[data-is="h6"]:hover {
+  outline-color: rgba(0, 128, 0, 0.5) !important;
+}
+
+/* Highlight custom components differently */
+*[data-is]:not([data-is="div"]):not([data-is="span"]):not([data-is="p"]):not([data-is="button"]):not([data-is="h1"]):not([data-is="h2"]):not([data-is="h3"]):not([data-is="h4"]):not([data-is="h5"]):not([data-is="h6"]):hover {
+  outline-color: rgba(255, 165, 0, 0.5) !important;
+}
+
+/* Add a helper to toggle all component outlines for debugging */
+.debug-mode *[data-at] {
+  outline: 1px solid rgba(128, 128, 128, 0.3) !important;
+  outline-offset: 1px !important;
+} 
