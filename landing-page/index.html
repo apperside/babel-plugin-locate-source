@@ -110,15 +110,12 @@
                             <pre><code>// Original JSX
 &lt;button className="my-button"&gt;Click me&lt;/button&gt;
 
-// Transformed with location data
+// With location data
 &lt;button 
   data-in="Button" 
   data-is="button" 
   data-at="Button.jsx:3" 
-  className="my-button"
-&gt;
-  Click me
-&lt;/button&gt;</code></pre>
+  className="my-button"&gt;Click me&lt;/button&gt;</code></pre>
                         </div>
                     </div>
                     <img src="images/step2-illustration.png" alt="Transformation step" class="step-image">
@@ -214,9 +211,7 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [
-          ["babel-plugin-locate-source", { enabled: true }],
-        ],
+        plugins: [["babel-plugin-locate-source", { enabled: true }]],
       },
     }),
   ],
@@ -245,9 +240,8 @@ export default defineConfig({
                             <pre><code>// babel.config.js
 module.exports = {
   plugins: [
-    ["babel-plugin-locate-source", { 
-      enabled: process.env.NODE_ENV === "development"
-    }]
+    ["babel-plugin-locate-source", 
+     { enabled: process.env.NODE_ENV === "development" }]
   ]
 };</code></pre>
                         </div>
@@ -263,15 +257,15 @@ module.exports = {
             <div class="styles-demo">
                 <div class="styles-code">
                     <div class="code-snippet">
-                        <pre><code>// In your main component or entry file
+                        <pre><code>// Import styles
 import 'babel-plugin-locate-source/debug-styles.css';
 
-// Add a toggle button somewhere in your app
+// Add toggle function
 function toggleDebugMode() {
   document.body.classList.toggle('debug-mode');
 }
 
-// Then in your component:
+// Usage in component
 &lt;button onClick={toggleDebugMode}&gt;
   Debug Mode
 &lt;/button&gt;</code></pre>

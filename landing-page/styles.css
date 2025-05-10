@@ -127,10 +127,13 @@ section {
     padding: 1.25rem;
     margin: 1.5rem 0;
     overflow-x: auto;
+    max-width: 100%;
 }
 
 .code-snippet pre {
     margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .code-snippet code {
@@ -533,6 +536,7 @@ nav {
 
 .styles-code {
     flex: 1;
+    max-width: 100%;
 }
 
 .styles-preview {
@@ -667,6 +671,10 @@ footer {
         flex-direction: column;
     }
     
+    .styles-code, .styles-preview {
+        width: 100%;
+    }
+    
     .browser-content {
         flex-direction: column;
         height: auto;
@@ -695,5 +703,25 @@ footer {
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    
+    .code-snippet {
+        padding: 1rem;
+    }
+    
+    .code-snippet code {
+        font-size: 0.8rem;
+    }
+}
+
+/* For extra small screens, adjust font size even more */
+@media (max-width: 480px) {
+    .code-snippet {
+        padding: 0.75rem;
+    }
+    
+    .code-snippet code {
+        font-size: 0.75rem;
+        line-height: 1.4;
     }
 } 
