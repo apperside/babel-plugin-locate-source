@@ -1,18 +1,27 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-
-// https://vitejs.dev/config/
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+// https://vite.dev/config/
 export default defineConfig({
+  // ..rest of your config,
   plugins: [
+    // ...rest of your plugins
     react({
-      // Enable the plugin only in development mode
+      
       babel: {
         plugins: [
-          process.env.NODE_ENV !== 'production' && 
-            path.resolve(__dirname, './custom-babel-plugin/index.js')
-        ].filter(Boolean)
-      }
-    })
+          [
+            /**
+             * the plugin, by default, is enabled if
+             * 
+             * process.env.NODE_ENV === 'development'
+             * 
+             * you can pass the enabled parameter to fit your custom rules
+             */
+            "babel-plugin-locate-source",
+            { enabled: true },
+          ],
+        ],
+      },
+    }),
   ],
-}); 
+});

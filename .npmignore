@@ -1,0 +1,25 @@
+# Source control
+.git
+.gitignore
+
+# Tests and examples
+test-transform-output/
+test.js
+example-*.js*
+
+# Build tools and config
+rollup.config.js
+.babelrc
+*.log
+*.lock
+
+# Development docs
+DEBUGGING.md
+
+# DevOps
+.github
+
+# Other unnecessary files
+node_modules/
+.DS_Store
+.env* 

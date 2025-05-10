@@ -1,4 +1,4 @@
-# Debug Source Babel Plugin
+# babel-plugin-locate-source
 
 This Babel plugin adds source file and line information to JSX elements in your React/Next.js application, making it easier to debug and locate components when inspecting the DOM. It mimics the behavior found in Tamagui, but works with any React or Next.js application.
 
@@ -12,15 +12,10 @@ When enabled, this plugin adds the following HTML attributes to JSX elements in 
 
 ## Installation
 
-### Local Installation
-
-1. Clone or copy this plugin directory into your project
-2. Install the necessary dependencies:
-
 ```bash
-npm install --save-dev @babel/core
+npm install --save-dev babel-plugin-locate-source
 # or
-yarn add --dev @babel/core
+yarn add --dev babel-plugin-locate-source
 ```
 
 ### For Vite + React Projects
@@ -28,73 +23,37 @@ yarn add --dev @babel/core
 Update your `vite.config.js`:
 
 ```js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+// https://vite.dev/config/
 export default defineConfig({
+  // ..rest of your config,
   plugins: [
+    // ...rest of your plugins
     react({
-      // Configure Babel with our plugin
+      
       babel: {
         plugins: [
-          // Only use the plugin in development mode
-          process.env.NODE_ENV !== 'production' && 
-            path.resolve(__dirname, './custom-babel-plugin/index.js')
-        ].filter(Boolean)
-      }
-    })
+          [
+            /**
+             * the plugin, by default, is enabled if
+             * 
+             * process.env.NODE_ENV === 'development'
+             * 
+             * you can pass the enabled parameter to fit your custom rules
+             */
+            "babel-plugin-locate-source",
+            { enabled: true },
+          ],
+        ],
+      },
+    }),
   ],
 });
-```
 
-Make sure you have `@vitejs/plugin-react` installed, which is typically included by default in Vite React projects:
 
-```bash
-npm install --save-dev @vitejs/plugin-react
-# or
-yarn add --dev @vitejs/plugin-react
-```
 
-### For Next.js 12+ Applications
-
-Update your `next.config.js`:
-
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  webpack: (config, { dev }) => {
-    // Only add in development mode
-    if (dev) {
-      // Find the rule that handles JSX/TSX files
-      const jsRule = config.module.rules.find(
-        rule => rule.oneOf && Array.isArray(rule.oneOf)
-      );
-      
-      if (jsRule && jsRule.oneOf) {
-        const babelRule = jsRule.oneOf.find(
-          rule => rule.test && rule.test.toString().includes('jsx|tsx')
-        );
-        
-        if (babelRule && babelRule.use && babelRule.use.options) {
-          // Add our plugin to babel options
-          babelRule.use.options.plugins = babelRule.use.options.plugins || [];
-          babelRule.use.options.plugins.push(
-            require.resolve('./custom-babel-plugin')
-          );
-        }
-      }
-    }
-    
-    return config;
-  },
-};
-
-module.exports = nextConfig;
-```
-
-### Alternative: Using `.babelrc`
+### Alternative: Using `.babelrc` or `babel.config.js`
 
 Create or update your `.babelrc` file:
 
@@ -104,16 +63,63 @@ Create or update your `.babelrc` file:
   "env": {
     "development": {
       "plugins": [
-        "./custom-babel-plugin"
+        "babel-plugin-locate-source"
       ]
     }
   }
 }
 ```
 
+Or use a `babel.config.js` file:
+
+```js
+// babel.config.js
+module.exports = {
+  presets: ["next/babel"],
+  plugins: [
+    /**
+     * the plugin, by default, is enabled if
+     * 
+     * process.env.NODE_ENV === 'development'
+     * 
+     * you can pass the enabled parameter to fit your custom rules
+     */
+    ["babel-plugin-whereis", { enabled: true }]
+  ]
+};
+```
+
+> **⚠️ WARNING**: Using a `babel.config.js` file with Next.js will disable the SWC compiler
+
+## Next.js Compatibility
+
+When using this plugin with Next.js, be aware that it will disable the [SWC compiler](https://nextjs.org/docs/architecture/nextjs-compiler) in favor of Babel. This is a necessary trade-off to enable the source location features.
+
+## Configuration
+
+The plugin accepts the following options:
+
+```js
+{
+  "enabled": true // Defaults to true if process.env.NODE_ENV is "development"
+}
+```
+
+You can configure the plugin in your Babel configuration:
+
+```json
+{
+  "plugins": [
+    ["babel-plugin-locate-source", {
+      "enabled": true
+    }]
+  ]
+}
+```
+
 ## Features
 
-- Only adds attributes in development mode
+- Only adds attributes in development mode by default
 - Skips node_modules files
 - Provides file path, line numbers, component name, and parent component info
 - Automatically disabled in production builds
@@ -154,4 +160,27 @@ Resulting HTML (in dev mode):
 
 ## License
 
-MIT 
+MIT
+
+## Development
+
+If you want to contribute to this project, you can follow these steps:
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Run tests with `npm test`
+4. Make your changes
+5. Build the package with `npm run build`
+
+### Building
+
+The build process uses Rollup to create optimized CommonJS and ES Module versions of the plugin. To build the package:
+
+```bash
+npm run build
+```
+
+This creates:
+- `dist/index.js` - CommonJS module for Node.js environments
+- `dist/index.esm.js` - ES module for bundlers like webpack, Rollup, etc.
+

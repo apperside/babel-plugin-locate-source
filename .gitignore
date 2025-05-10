@@ -3,6 +3,8 @@ node_modules/
 
 # Test output
 transformed.js
+transformed-*.js
+test-transform-output/
 
 # Logs
 *.log
