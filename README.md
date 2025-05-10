@@ -1,8 +1,14 @@
-# babel-plugin-locate-source
+<div align="center">
+  <img src="landing-page/images/hero-illustration.png" alt="babel-plugin-locate-source logo" width="400" />
+  <h1>babel-plugin-locate-source</h1>
+  <p>Easily locate your React components in the DOM with source file and line information</p>
+  <hr />
+  
+  [![npm version](https://img.shields.io/npm/v/babel-plugin-locate-source.svg?style=flat)](https://www.npmjs.com/package/babel-plugin-locate-source)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+</div>
 
-This Babel plugin adds source file and line information to JSX elements in your React/Next.js application, making it easier to debug and locate components when inspecting the DOM. It mimics the behavior found in Tamagui, but works with any React or Next.js application.
-
-## What It Does
+## 🔍 What It Does
 
 When enabled, this plugin adds the following HTML attributes to JSX elements in development mode:
 
@@ -10,7 +16,11 @@ When enabled, this plugin adds the following HTML attributes to JSX elements in 
 - `data-is`: The component name (e.g., "Button")
 - `data-in`: The parent component where this JSX appears (e.g., "Header")
 
-## Installation
+<div align="center">
+  <img src="landing-page/images/debug-styles-preview.png" alt="Debug preview" width="600" />
+</div>
+
+## 🚀 Installation
 
 ```bash
 npm install --save-dev babel-plugin-locate-source
@@ -50,8 +60,7 @@ export default defineConfig({
     }),
   ],
 });
-
-
+```
 
 ### Alternative: Using `.babelrc` or `babel.config.js`
 
@@ -91,11 +100,23 @@ module.exports = {
 
 > **⚠️ WARNING**: Using a `babel.config.js` file with Next.js will disable the SWC compiler
 
-## Next.js Compatibility
+## ⚡ Step-by-Step Integration
+
+<div align="center">
+  <img src="landing-page/images/step1-illustration.png" alt="Step 1" width="180" />
+  <img src="landing-page/images/step2-illustration.png" alt="Step 2" width="180" />
+  <img src="landing-page/images/step3-illustration.png" alt="Step 3" width="180" />
+</div>
+
+1. **Install the plugin** using npm or yarn
+2. **Update your Babel configuration** to include the plugin
+3. **Start your development server** and inspect elements to see source information
+
+## ⚙️ Next.js Compatibility
 
 When using this plugin with Next.js, be aware that it will disable the [SWC compiler](https://nextjs.org/docs/architecture/nextjs-compiler) in favor of Babel. This is a necessary trade-off to enable the source location features.
 
-## Configuration
+## 🛠️ Configuration
 
 The plugin accepts the following options:
 
@@ -117,15 +138,15 @@ You can configure the plugin in your Babel configuration:
 }
 ```
 
-## Features
+## ✨ Features
 
-- Only adds attributes in development mode by default
-- Skips node_modules files
-- Provides file path, line numbers, component name, and parent component info
-- Automatically disabled in production builds
-- Zero runtime performance impact in production
+- ✅ Only adds attributes in development mode by default
+- ✅ Skips node_modules files
+- ✅ Provides file path, line numbers, component name, and parent component info
+- ✅ Automatically disabled in production builds
+- ✅ Zero runtime performance impact in production
 
-## How It Helps
+## 🔧 How It Helps
 
 When inspecting your application in the browser's devtools, you'll see:
 
@@ -141,7 +162,11 @@ This makes it much easier to:
 2. Locate the exact file and line number where the component is defined
 3. Understand component hierarchy and nesting relationships
 
-## Example
+<div align="center">
+  <img src="landing-page/images/app-screenshot.png" alt="Application screenshot" width="600" />
+</div>
+
+## 📝 Example
 
 Original JSX:
 ```jsx
@@ -158,11 +183,11 @@ Resulting HTML (in dev mode):
 </button>
 ```
 
-## License
+## 📜 License
 
 MIT
 
-## Development
+## 🧑‍💻 Development
 
 If you want to contribute to this project, you can follow these steps:
 

@@ -1,3 +1,5 @@
+import { injectSpeedInsights } from '@vercel/speed-insights';
+injectSpeedInsights();
 // Tab functionality for the installation section
 document.addEventListener('DOMContentLoaded', () => {
     // Installation tabs
