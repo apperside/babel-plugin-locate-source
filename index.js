@@ -2,15 +2,16 @@
  * Babel plugin to add source file and line information to JSX elements
  * Similar to what Tamagui does automatically
  */
-module.exports = function debugSourcePlugin(babel) {
+module.exports = function debugSourcePlugin(babel, options = {}) {
   const { types: t } = babel;
+  const { enabled = process.env.NODE_ENV === 'development' } = options;
   
   return {
-    name: "debug-source-plugin",
+    name: "locate-source-plugin",
     visitor: {
       JSXElement(path, state) {
-        // Skip if not in development mode
-        if (process.env.NODE_ENV !== 'development') {
+        // Skip if plugin is disabled
+        if (!enabled) {
           return;
         }
         
