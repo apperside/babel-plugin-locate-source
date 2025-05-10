@@ -1,8 +1,15 @@
 {
-  "name": "babel-plugin-whereis",
+  "name": "babel-plugin-locate-source",
   "version": "1.0.0",
-  "description": "Babel plugin to add source file and line information to JSX elements",
-  "main": "index.js",
+  "description": "Babel plugin to add source file and line information to JSX elements so that you will be able to instantly locate th exact source code location for any html element",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist",
+    "debug-styles.css",
+    "README.md"
+  ],
   "author": "You",
   "license": "MIT",
   "keywords": [
@@ -15,5 +22,18 @@
   ],
   "peerDependencies": {
     "@babel/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "rimraf": "^5.0.10",
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c",
+    "prepublishOnly": "npm run test && npm run build",
+    "test": "node test.js"
   }
-} 
+}
