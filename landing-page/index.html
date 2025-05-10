@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -27,11 +31,12 @@
                     </a>
                 </div>
             </nav>
-            
+
             <div class="hero">
                 <div class="hero-content">
                     <h1>Debug React Components with Ease</h1>
-                    <p class="subtitle">Instantly locate any component's source file and line number directly from your browser's inspector.</p>
+                    <p class="subtitle">Instantly locate any component's source file and line number directly from your
+                        browser's inspector.</p>
                     <div class="cta-buttons">
                         <a href="#installation" class="btn primary">Get Started</a>
                         <a href="#how-it-works" class="btn secondary">See How It Works</a>
@@ -95,7 +100,7 @@
                     </div>
                     <img src="images/step1-illustration.png" alt="Installation step" class="step-image">
                 </div>
-                
+
                 <div class="workflow-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
@@ -118,7 +123,7 @@
                     </div>
                     <img src="images/step2-illustration.png" alt="Transformation step" class="step-image">
                 </div>
-                
+
                 <div class="workflow-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
@@ -176,7 +181,8 @@
                 </div>
                 <div class="demo-explanation">
                     <h3>No More "Where Is This Component?"</h3>
-                    <p>With babel-plugin-locate-source, debugging becomes intuitive. Just inspect the element and immediately see:</p>
+                    <p>With babel-plugin-locate-source, debugging becomes intuitive. Just inspect the element and
+                        immediately see:</p>
                     <ul>
                         <li><strong>data-at</strong>: The file and line numbers (Card.jsx:14-24)</li>
                         <li><strong>data-is</strong>: The component name (Card)</li>
@@ -231,7 +237,8 @@ export default defineConfig({
   }
 }</code></pre>
                         </div>
-                        <p class="note">Note: Using Babel with Next.js will disable the SWC compiler. This is a necessary trade-off for getting component source information.</p>
+                        <p class="note">Note: Using Babel with Next.js will disable the SWC compiler. This is a
+                            necessary trade-off for getting component source information.</p>
                     </div>
                     <div class="tab-pane" id="babel-tab">
                         <div class="code-snippet">
@@ -301,4 +308,5 @@ function toggleDebugMode() {
 
     <script src="script.js"></script>
 </body>
-</html> 
+
+</html>

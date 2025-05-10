@@ -66,29 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add syntax highlighting style to code blocks
     document.querySelectorAll('.code-snippet code').forEach(block => {
-        // Simple syntax highlighting for keywords
-        const keywords = ['import', 'export', 'from', 'const', 'let', 'var', 'function', 
-                         'return', 'if', 'else', 'for', 'while', 'class', 'extends',
-                         'module.exports', 'require', 'enabled', 'plugins', 'presets'];
-        
-        const operators = ['=>', ':', '=', '+', '-', '*', '/', '[', ']', '{', '}', '(', ')', ',', ';'];
-        
-        const strings = ['"', "'", '`'];
-        
-        let html = block.innerHTML;
-        
-        // Highlight keywords
-        keywords.forEach(keyword => {
-            const regex = new RegExp(`\\b${keyword}\\b`, 'g');
-            html = html.replace(regex, `<span style="color: #ff79c6;">${keyword}</span>`);
-        });
-        
-        // Highlight strings - simplified approach
-        html = html.replace(/(["'`])(.*?)\1/g, '<span style="color: #f1fa8c;">$&</span>');
-        
-        // Highlight comments
-        html = html.replace(/(\/\/.*)/g, '<span style="color: #6272a4;">$1</span>');
-        
-        block.innerHTML = html;
+        // We'll add proper syntax highlighting via CSS rather than inline styles
+        // This fixes the issue with HTML tags appearing in the code
     });
 }); 
