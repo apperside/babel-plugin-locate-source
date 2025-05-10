@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window Frame -->
+  <rect x="50" y="50" width="700" height="500" rx="10" fill="#334155" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Browser Header -->
+  <rect x="50" y="50" width="700" height="40" rx="10" fill="#1e293b" />
+  <circle cx="85" cy="70" r="8" fill="#ff5f56" />
+  <circle cx="115" cy="70" r="8" fill="#ffbd2e" />
+  <circle cx="145" cy="70" r="8" fill="#27c93f" />
+  <rect x="170" y="60" width="400" height="20" rx="5" fill="#475569" />
+  
+  <!-- Browser Content -->
+  <rect x="70" y="110" width="660" height="420" rx="5" fill="white" />
+  
+  <!-- React Component Visualization -->
+  <rect x="100" y="150" width="300" height="80" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+  <text x="130" y="170" font-family="Arial" font-size="12" fill="#475569">Header.jsx</text>
+  
+  <rect x="100" y="250" width="600" height="220" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+  <text x="130" y="270" font-family="Arial" font-size="12" fill="#475569">MainContent.jsx</text>
+  
+  <!-- Component Boxes -->
+  <rect x="130" y="290" width="240" height="120" rx="5" fill="white" stroke="#6366f1" stroke-width="2" />
+  <text x="150" y="310" font-family="Arial" font-size="12" fill="#6366f1">Card.jsx:14-24</text>
+  
+  <rect x="400" y="290" width="240" height="120" rx="5" fill="white" stroke="#6366f1" stroke-width="2" />
+  <text x="420" y="310" font-family="Arial" font-size="12" fill="#6366f1">Card.jsx:14-24</text>
+  
+  <rect x="150" y="320" width="200" height="70" rx="5" fill="white" stroke="#f97316" stroke-width="2" />
+  <text x="170" y="340" font-family="Arial" font-size="12" fill="#f97316">Button.jsx:7</text>
+  
+  <rect x="420" y="320" width="200" height="70" rx="5" fill="white" stroke="#f97316" stroke-width="2" />
+  <text x="440" y="340" font-family="Arial" font-size="12" fill="#f97316">Button.jsx:7</text>
+  
+  <!-- DevTools Overlay Illustration -->
+  <g opacity="0.9">
+    <rect x="450" y="150" width="250" height="180" rx="5" fill="#1e293b" />
+    <text x="470" y="170" font-family="Arial" font-size="10" fill="white">Elements</text>
+    <rect x="470" y="180" width="210" height="20" rx="3" fill="#6366f1" opacity="0.2" />
+    <text x="475" y="195" font-family="Arial" font-size="10" fill="white">&lt;div data-in="HomePage" data-is="Card"</text>
+    <text x="475" y="210" font-family="Arial" font-size="10" fill="#f97316">data-at="Card.jsx:14-24"</text>
+    <text x="475" y="225" font-family="Arial" font-size="10" fill="white">className="card"&gt;</text>
+    <text x="475" y="240" font-family="Arial" font-size="10" fill="white">  &lt;div className="card-header"&gt;</text>
+    <text x="475" y="255" font-family="Arial" font-size="10" fill="white">    &lt;h3&gt;Feature One&lt;/h3&gt;</text>
+    <text x="475" y="270" font-family="Arial" font-size="10" fill="white">  &lt;/div&gt;</text>
+    <text x="475" y="285" font-family="Arial" font-size="10" fill="white">&lt;/div&gt;</text>
+  </g>
+  
+  <!-- Connecting Lines -->
+  <line x1="320" y1="170" x2="450" y2="190" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="250" y1="350" x2="470" y2="210" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Decoration Elements -->
+  <circle cx="100" cy="480" r="25" fill="#6366f1" opacity="0.1" />
+  <circle cx="650" cy="180" r="15" fill="#f97316" opacity="0.1" />
+  <circle cx="700" cy="440" r="20" fill="#6366f1" opacity="0.1" />
+</svg> 

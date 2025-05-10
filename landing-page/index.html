@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>babel-plugin-locate-source | Debug React with Ease</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="bracket">{</span>locate<span class="source">source</span><span class="bracket">}</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#examples">Examples</a>
+                    <a href="#installation">Installation</a>
+                    <a href="https://github.com/apperside/babel-plugin-locate-source" class="github-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Debug React Components with Ease</h1>
+                    <p class="subtitle">Instantly locate any component's source file and line number directly from your browser's inspector.</p>
+                    <div class="cta-buttons">
+                        <a href="#installation" class="btn primary">Get Started</a>
+                        <a href="#how-it-works" class="btn secondary">See How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-illustration.png" alt="React component debugging illustration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why You'll Love This Plugin</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Precise Location</h3>
+                    <p>Instantly find the exact file and line numbers where any component is defined.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Component Hierarchy</h3>
+                    <p>See parent-child relationships and understand your component structure at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3>Zero Production Impact</h3>
+                    <p>Automatically disabled in production builds with no performance overhead.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Easy Integration</h3>
+                    <p>Works with React, Next.js, and any Babel-based project in minutes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Add the Plugin</h3>
+                        <p>Install the plugin and add it to your Babel configuration.</p>
+                        <div class="code-snippet">
+                            <pre><code>npm install --save-dev babel-plugin-locate-source</code></pre>
+                        </div>
+                    </div>
+                    <img src="images/step1-illustration.png" alt="Installation step" class="step-image">
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Debug in Development</h3>
+                        <p>The plugin automatically adds source information to your JSX elements.</p>
+                        <div class="code-snippet">
+                            <pre><code>// Original JSX
+&lt;button className="my-button"&gt;Click me&lt;/button&gt;
+
+// Transformed with location data
+&lt;button 
+  data-in="Button" 
+  data-is="button" 
+  data-at="Button.jsx:3" 
+  className="my-button"
+&gt;
+  Click me
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                    <img src="images/step2-illustration.png" alt="Transformation step" class="step-image">
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Inspect & Locate</h3>
+                        <p>Use your browser's developer tools to inspect elements and find their source location.</p>
+                    </div>
+                    <img src="images/step3-illustration.png" alt="Inspection step" class="step-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples" class="examples">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <div class="demo">
+                <div class="demo-browser">
+                    <div class="browser-header">
+                        <div class="browser-buttons">
+                            <span class="browser-btn red"></span>
+                            <span class="browser-btn yellow"></span>
+                            <span class="browser-btn green"></span>
+                        </div>
+                        <div class="browser-address">localhost:3000</div>
+                    </div>
+                    <div class="browser-content">
+                        <div class="browser-app">
+                            <img src="images/app-screenshot.png" alt="Example React application" class="app-image">
+                        </div>
+                        <div class="browser-devtools">
+                            <div class="devtools-header">
+                                <div class="devtools-tab active">Elements</div>
+                                <div class="devtools-tab">Console</div>
+                                <div class="devtools-tab">Sources</div>
+                            </div>
+                            <div class="devtools-body">
+                                <div class="code-highlight">
+                                    <pre><code>&lt;div <mark>data-in="HomePage" data-is="Card" data-at="Card.jsx:14-24"</mark> class="card"&gt;
+  &lt;div data-in="Card" data-is="div" data-at="Card.jsx:15" class="card-header"&gt;
+    &lt;h3 data-in="Card" data-is="h3" data-at="Card.jsx:16"&gt;Feature One&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div data-in="Card" data-is="div" data-at="Card.jsx:18" class="card-body"&gt;
+    &lt;p data-in="Card" data-is="p" data-at="Card.jsx:19"&gt;Description text&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div data-in="Card" data-is="div" data-at="Card.jsx:21" class="card-footer"&gt;
+    &lt;button data-in="Button" data-is="button" data-at="Button.jsx:7" class="button button-primary"&gt;
+      Learn More
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-explanation">
+                    <h3>No More "Where Is This Component?"</h3>
+                    <p>With babel-plugin-locate-source, debugging becomes intuitive. Just inspect the element and immediately see:</p>
+                    <ul>
+                        <li><strong>data-at</strong>: The file and line numbers (Card.jsx:14-24)</li>
+                        <li><strong>data-is</strong>: The component name (Card)</li>
+                        <li><strong>data-in</strong>: The parent component (HomePage)</li>
+                    </ul>
+                    <p>Add the included debug styles for visual highlights and tooltips on hover!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation" class="installation">
+        <div class="container">
+            <h2>Getting Started</h2>
+            <div class="installation-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="vite">Vite + React</button>
+                    <button class="tab-btn" data-tab="nextjs">Next.js</button>
+                    <button class="tab-btn" data-tab="babel">Babel Config</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="vite-tab">
+                        <div class="code-snippet">
+                            <pre><code>// vite.config.js
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          ["babel-plugin-locate-source", { enabled: true }],
+        ],
+      },
+    }),
+  ],
+});</code></pre>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="nextjs-tab">
+                        <div class="code-snippet">
+                            <pre><code>// .babelrc
+{
+  "presets": ["next/babel"],
+  "env": {
+    "development": {
+      "plugins": [
+        "babel-plugin-locate-source"
+      ]
+    }
+  }
+}</code></pre>
+                        </div>
+                        <p class="note">Note: Using Babel with Next.js will disable the SWC compiler. This is a necessary trade-off for getting component source information.</p>
+                    </div>
+                    <div class="tab-pane" id="babel-tab">
+                        <div class="code-snippet">
+                            <pre><code>// babel.config.js
+module.exports = {
+  plugins: [
+    ["babel-plugin-locate-source", { 
+      enabled: process.env.NODE_ENV === "development"
+    }]
+  ]
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="debug-styles">
+        <div class="container">
+            <h2>Enhance Debugging with Visual Styles</h2>
+            <div class="styles-demo">
+                <div class="styles-code">
+                    <div class="code-snippet">
+                        <pre><code>// In your main component or entry file
+import 'babel-plugin-locate-source/debug-styles.css';
+
+// Add a toggle button somewhere in your app
+function toggleDebugMode() {
+  document.body.classList.toggle('debug-mode');
+}
+
+// Then in your component:
+&lt;button onClick={toggleDebugMode}&gt;
+  Debug Mode
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="styles-preview">
+                    <img src="images/debug-styles-preview.png" alt="Debug styles preview" class="styles-image">
+                    <div class="styles-overlay">
+                        <div class="styles-tooltip">Button in Card (Button.jsx:7)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="bracket">{</span>locate<span class="source">source</span><span class="bracket">}</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/apperside/babel-plugin-locate-source">GitHub</a>
+                    <a href="https://github.com/apperside/babel-plugin-locate-source/issues">Issues</a>
+                    <a href="#installation">Installation</a>
+                    <a href="#features">Features</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>MIT Licensed. Created with ❤️ for the React community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

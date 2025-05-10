@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal Background -->
+  <rect x="50" y="50" width="400" height="200" rx="10" fill="#1e293b" />
+  
+  <!-- Terminal Header -->
+  <rect x="50" y="50" width="400" height="30" rx="10" fill="#0f172a" />
+  <circle cx="75" cy="65" r="6" fill="#ff5f56" />
+  <circle cx="95" cy="65" r="6" fill="#ffbd2e" />
+  <circle cx="115" cy="65" r="6" fill="#27c93f" />
+  <text x="150" y="70" font-family="Arial" font-size="12" fill="#94a3b8">Terminal</text>
+  
+  <!-- Command Line Content -->
+  <text x="70" y="100" font-family="Courier New" font-size="14" fill="#f8fafc">$ npm install --save-dev babel-plugin-locate-source</text>
+  <text x="70" y="125" font-family="Courier New" font-size="14" fill="#a5b4fc">+ babel-plugin-locate-source@1.0.0</text>
+  <text x="70" y="150" font-family="Courier New" font-size="14" fill="#a5b4fc">added 1 package, and audited 120 packages in 2s</text>
+  <text x="70" y="175" font-family="Courier New" font-size="14" fill="#a5b4fc">found 0 vulnerabilities</text>
+  <text x="70" y="200" font-family="Courier New" font-size="14" fill="#f8fafc">$</text>
+  
+  <!-- Configuration File Visualization -->
+  <rect x="150" y="220" width="200" height="30" rx="5" fill="#6366f1" />
+  <text x="190" y="240" font-family="Arial" font-size="12" fill="white">babel.config.js</text>
+  
+  <!-- Connecting Arrow -->
+  <path d="M250,205 L250,220" stroke="#f97316" stroke-width="2" />
+  <polygon points="245,218 250,228 255,218" fill="#f97316" />
+</svg> 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Code Editor Background -->
+  <rect x="50" y="50" width="400" height="220" rx="10" fill="#1e293b" />
+  
+  <!-- Code Editor Header -->
+  <rect x="50" y="50" width="400" height="30" rx="10" fill="#0f172a" />
+  <circle cx="75" cy="65" r="6" fill="#ff5f56" />
+  <circle cx="95" cy="65" r="6" fill="#ffbd2e" />
+  <circle cx="115" cy="65" r="6" fill="#27c93f" />
+  <text x="150" y="70" font-family="Arial" font-size="12" fill="#94a3b8">Button.jsx</text>
+  
+  <!-- Code Content -->
+  <g font-family="Courier New" font-size="14">
+    <text x="70" y="100" fill="#94a3b8">import React from 'react';</text>
+    <text x="70" y="125" fill="#94a3b8">// Simple Button component</text>
+    <text x="70" y="150" fill="#a5b4fc">export const Button = ({ children, onClick, ...props }) => {</text>
+    <text x="70" y="175" fill="#94a3b8">  return (</text>
+    <text x="70" y="200" fill="#f97316">    &lt;button className="button" onClick={onClick} {...props}&gt;</text>
+    <text x="70" y="225" fill="#94a3b8">      {children}</text>
+    <text x="70" y="250" fill="#f97316">    &lt;/button&gt;</text>
+    <text x="70" y="275" fill="#94a3b8">  );</text>
+    <text x="70" y="300" fill="#a5b4fc">};</text>
+  </g>
+  
+  <!-- Transformation Visualization -->
+  <rect x="160" y="180" width="290" height="100" rx="5" fill="#0f172a" stroke="#6366f1" stroke-width="2" />
+  <g font-family="Courier New" font-size="12">
+    <text x="170" y="200" fill="#f97316">&lt;button</text>
+    <text x="230" y="200" fill="#f8fafc">data-in="Button"</text>
+    <text x="170" y="220" fill="#f8fafc">      data-is="button"</text>
+    <text x="170" y="240" fill="#f8fafc">      data-at="Button.jsx:7"</text>
+    <text x="170" y="260" fill="#f97316">      className="button" onClick={onClick} {...props}&gt;</text>
+  </g>
+  
+  <!-- Transformation Arrow -->
+  <path d="M130,200 L150,220" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="146,220 155,227 152,216" fill="#6366f1" />
+</svg> 

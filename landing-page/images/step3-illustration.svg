@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window Background -->
+  <rect x="50" y="25" width="400" height="250" rx="10" fill="#1e293b" />
+  
+  <!-- Browser Header -->
+  <rect x="50" y="25" width="400" height="30" rx="10" fill="#0f172a" />
+  <circle cx="75" cy="40" r="6" fill="#ff5f56" />
+  <circle cx="95" cy="40" r="6" fill="#ffbd2e" />
+  <circle cx="115" cy="40" r="6" fill="#27c93f" />
+  <rect x="150" y="32" width="200" height="16" rx="3" fill="#475569" />
+  
+  <!-- Browser Content -->
+  <rect x="60" y="65" width="380" height="200" rx="5" fill="white" />
+  
+  <!-- React App UI -->
+  <rect x="80" y="85" width="340" height="50" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+  <text x="150" y="115" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">App Header</text>
+  
+  <rect x="80" y="145" width="160" height="100" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+  <text x="120" y="175" font-family="Arial" font-size="12" fill="#1e293b">Card One</text>
+  <rect x="90" y="195" width="140" height="30" rx="5" fill="#6366f1" />
+  <text x="125" y="215" font-family="Arial" font-size="12" fill="white">Button</text>
+  
+  <rect x="250" y="145" width="160" height="100" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+  <text x="290" y="175" font-family="Arial" font-size="12" fill="#1e293b">Card Two</text>
+  <rect x="260" y="195" width="140" height="30" rx="5" fill="#6366f1" />
+  <text x="295" y="215" font-family="Arial" font-size="12" fill="white">Button</text>
+  
+  <!-- DevTools -->
+  <rect x="120" y="100" width="270" height="160" rx="5" fill="#1e293b" />
+  <rect x="120" y="100" width="270" height="25" rx="5" fill="#0f172a" />
+  <text x="135" y="117" font-family="Arial" font-size="12" fill="#94a3b8">Elements</text>
+  <rect x="190" y="100" width="60" height="25" rx="0" fill="#1e293b" />
+  <text x="200" y="117" font-family="Arial" font-size="12" fill="white">Console</text>
+  
+  <!-- Element Inspector -->
+  <g font-family="Courier New" font-size="12">
+    <text x="130" y="145" fill="#94a3b8">&lt;button </text>
+    <text x="180" y="145" fill="#f97316">data-in="Button" data-is="button" </text>
+    <text x="130" y="165" fill="#f97316">        data-at="Button.jsx:7" </text>
+    <text x="280" y="165" fill="#94a3b8">class="button"&gt;</text>
+    <text x="130" y="185" fill="#94a3b8">  Button</text>
+    <text x="130" y="205" fill="#94a3b8">&lt;/button&gt;</text>
+  </g>
+  
+  <!-- Source File Popup -->
+  <rect x="170" y="225" width="180" height="25" rx="5" fill="#0f172a" stroke="#6366f1" stroke-width="1" />
+  <text x="180" y="242" font-family="Arial" font-size="12" fill="white">Go to Button.jsx, line 7</text>
+  <path d="M190,205 L200,225" stroke="#6366f1" stroke-width="2" />
+  <polygon points="195,223 200,230 205,223" fill="#6366f1" />
+</svg> 

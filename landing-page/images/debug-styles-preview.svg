@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Component Layout Background -->
+  <rect width="600" height="400" fill="#f8fafc" />
+  
+  <!-- Component Boxes with Debug Outlines -->
+  <rect x="50" y="50" width="500" height="80" rx="5" fill="white" stroke="#cbd5e1" stroke-width="1" />
+  <text x="80" y="95" font-family="Arial" font-size="18" font-weight="bold" fill="#0f172a">Header Component</text>
+  <rect x="50" y="50" width="500" height="80" rx="5" fill="none" stroke="rgba(0, 128, 0, 0.3)" stroke-width="1" stroke-dasharray="3,3" />
+  
+  <!-- Card Component -->
+  <rect x="50" y="150" width="240" height="200" rx="8" fill="white" stroke="#cbd5e1" stroke-width="1" />
+  <rect x="50" y="150" width="240" height="60" rx="8" fill="#f1f5f9" />
+  <text x="70" y="185" font-family="Arial" font-size="16" font-weight="bold" fill="#334155">Card Title</text>
+  <text x="70" y="225" font-family="Arial" font-size="14" fill="#475569">Card description text here. This explains what the card is about in a few sentences.</text>
+  <rect x="70" y="300" width="120" height="30" rx="15" fill="#6366f1" />
+  <text x="95" y="320" font-family="Arial" font-size="14" fill="white">Button</text>
+  
+  <!-- Highlighted Button with Debug Outline and Focus -->
+  <rect x="70" y="300" width="120" height="30" rx="15" fill="none" stroke="rgba(0, 0, 255, 0.5)" stroke-width="2" />
+  
+  <!-- Debug Tooltip -->
+  <rect x="70" y="260" width="200" height="30" rx="5" fill="#333" opacity="0.9" />
+  <text x="80" y="280" font-family="Courier New" font-size="12" fill="white">Button in Card (Button.jsx:7)</text>
+  <path d="M130,290 L130,300" stroke="#333" stroke-width="2" />
+  <polygon points="125,298 130,305 135,298" fill="#333" />
+  
+  <!-- Card Component 2 -->
+  <rect x="310" y="150" width="240" height="200" rx="8" fill="white" stroke="#cbd5e1" stroke-width="1" />
+  <rect x="310" y="150" width="240" height="60" rx="8" fill="#f1f5f9" />
+  <text x="330" y="185" font-family="Arial" font-size="16" font-weight="bold" fill="#334155">Another Card</text>
+  <text x="330" y="225" font-family="Arial" font-size="14" fill="#475569">This is another card with its own content and description text.</text>
+  <rect x="330" y="300" width="120" height="30" rx="15" fill="#6366f1" />
+  <text x="355" y="320" font-family="Arial" font-size="14" fill="white">Button</text>
+  
+  <!-- Overall Debug-mode Outline -->
+  <rect x="50" y="150" width="240" height="200" rx="8" fill="none" stroke="rgba(255, 165, 0, 0.5)" stroke-width="1" />
+  <rect x="310" y="150" width="240" height="200" rx="8" fill="none" stroke="rgba(128, 128, 128, 0.3)" stroke-width="1" />
+  
+  <!-- Toggle Button -->
+  <rect x="500" y="30" width="80" height="30" rx="15" fill="#1e293b" />
+  <text x="515" y="50" font-family="Arial" font-size="12" fill="white">Debug Mode</text>
+</svg> 
