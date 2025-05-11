@@ -28,6 +28,17 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Stop propagation of hover effects to parent elements */
+*[data-at] *[data-at]:hover ~ *[data-at]:not(:hover),
+*[data-at] > *[data-at]:hover ~ *[data-at]:not(:hover) {
+  outline: none !important;
+}
+
+*[data-at] *[data-at]:hover ~ *[data-at]:not(:hover)::after,
+*[data-at] > *[data-at]:hover ~ *[data-at]:not(:hover)::after {
+  display: none !important;
+}
+
 /* Different colors for different types of components */
 *[data-is="div"]:hover {
   outline-color: rgba(255, 0, 0, 0.5) !important;
@@ -57,4 +68,13 @@
 .debug-mode *[data-at] {
   outline: 1px solid rgba(128, 128, 128, 0.3) !important;
   outline-offset: 1px !important;
+}
+
+/* Ensure only the directly hovered element shows debug information */
+*[data-at]:has(*[data-at]:hover) {
+  outline: none !important;
+}
+
+*[data-at]:has(*[data-at]:hover)::after {
+  display: none !important;
 } 
