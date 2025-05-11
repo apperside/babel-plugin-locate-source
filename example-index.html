@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example App with babel-plugin-locate-source</title>
+  
+  <!-- Include the debug styles -->
+  <link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
+  
+  <!-- Alternative import for bundled applications -->
+  <!-- <style>@import 'node_modules/babel-plugin-locate-source/debug-styles.css';</style> -->
+  
+  <!-- Your other styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- Include the clickable script for IDE integration -->
+  <!-- Development version: -->
+  <script src="node_modules/babel-plugin-locate-source/locate-source-clickable.js"></script>
+  
+  <!-- Production/minified version: -->
+  <!-- <script src="node_modules/babel-plugin-locate-source/dist/locate-source-clickable.js"></script> -->
+  
+  <!-- Your application script -->
+  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- 
+    Alternative for bundled applications:
+    In your entry file (e.g., main.jsx):
+    
+    import 'babel-plugin-locate-source/debug-styles.css';
+    import 'babel-plugin-locate-source/locate-source-clickable.js';
+    // Or for the minified version:
+    // import 'babel-plugin-locate-source/dist/locate-source-clickable.js';
+    
+    // Then your app code
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+    import App from './App';
+    
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  -->
+</body>
+</html> 

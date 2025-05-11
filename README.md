@@ -122,7 +122,8 @@ The plugin accepts the following options:
 
 ```js
 {
-  "enabled": true // Defaults to true if process.env.NODE_ENV is "development"
+  "enabled": true, // Defaults to true if process.env.NODE_ENV is "development"
+  "clickable": false // When true, makes source locations clickable to open in IDE
 }
 ```
 
@@ -132,11 +133,59 @@ You can configure the plugin in your Babel configuration:
 {
   "plugins": [
     ["babel-plugin-locate-source", {
-      "enabled": true
+      "enabled": true,
+      "clickable": true
     }]
   ]
 }
 ```
+
+### Using Clickable Source Locations
+
+When the `clickable` option is enabled, you'll need to:
+
+1. Include the `debug-styles.css` file in your project
+2. Include the `locate-source-clickable.js` script in your project
+
+```html
+<!-- In your HTML or component that loads globally -->
+<link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
+<script src="node_modules/babel-plugin-locate-source/locate-source-clickable.js"></script>
+```
+
+Or you can use the minified version from the dist directory:
+
+```html
+<script src="node_modules/babel-plugin-locate-source/dist/locate-source-clickable.js"></script>
+```
+
+This will allow you to click on the component info tooltip to open the source file directly in your IDE. 
+The script supports VS Code, IntelliJ, Atom, Sublime Text, and Cursor editors. You can select your preferred
+editor through a settings panel that appears in the bottom-right corner of your application.
+
+<div align="center">
+  <img src="landing-page/images/debug-styles-preview.png" alt="Clickable feature preview" width="600" />
+</div>
+
+#### IDE Support
+
+The clickable feature works with the following editors:
+- VS Code (default)
+- IntelliJ IDEA
+- Atom
+- Sublime Text
+- Cursor
+
+#### How to Use
+
+1. Enable the clickable feature in your Babel config
+2. Include the necessary CSS and JS files
+3. Hover over any component to see its information tooltip
+4. Click on the tooltip to open the source file in your preferred editor
+5. Use the settings gear (⚙️) in the bottom-right corner to configure your editor preference
+6. Use the target icon (🎯) to enter "picker mode" for clicking any element to open its source
+
+For more detailed information about the clickable feature, see [CLICKABLE.md](CLICKABLE.md).
 
 ## ✨ Features
 
@@ -145,6 +194,8 @@ You can configure the plugin in your Babel configuration:
 - ✅ Provides file path, line numbers, component name, and parent component info
 - ✅ Automatically disabled in production builds
 - ✅ Zero runtime performance impact in production
+- ✅ Optional clickable source locations that open files directly in your IDE
+- ✅ Interactive element picker to quickly locate any component's source
 
 ## 🔧 How It Helps
 
@@ -161,6 +212,7 @@ This makes it much easier to:
 1. Identify which component is rendering what markup
 2. Locate the exact file and line number where the component is defined
 3. Understand component hierarchy and nesting relationships
+4. **Jump directly to the source code** with the clickable feature
 
 <div align="center">
   <img src="landing-page/images/app-screenshot.png" alt="Application screenshot" width="600" />

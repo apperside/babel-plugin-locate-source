@@ -4,7 +4,10 @@
  */
 module.exports = function debugSourcePlugin(babel, options = {}) {
   const { types: t } = babel;
-  const { enabled = process.env.NODE_ENV === 'development' } = options;
+  const { 
+    enabled = process.env.NODE_ENV === 'development',
+    clickable = false 
+  } = options;
   
   return {
     name: "locate-source-plugin",
@@ -76,6 +79,9 @@ module.exports = function debugSourcePlugin(babel, options = {}) {
         const path_segments = filename.split('/');
         const shortFilename = path_segments[path_segments.length - 1];
         
+        // Store the full path for clickable links
+        const fullPath = filename;
+        
         // Add data attributes to the JSX element (following Tamagui's pattern)
         path.node.openingElement.attributes.unshift(
           t.jsxAttribute(
@@ -96,6 +102,31 @@ module.exports = function debugSourcePlugin(babel, options = {}) {
             t.jsxAttribute(
               t.jsxIdentifier('data-in'),
               t.stringLiteral(parentComponentName)
+            )
+          );
+        }
+        
+        // Add full path and line info for picker functionality
+        path.node.openingElement.attributes.unshift(
+          t.jsxAttribute(
+            t.jsxIdentifier('data-filepath'),
+            t.stringLiteral(fullPath)
+          )
+        );
+        
+        path.node.openingElement.attributes.unshift(
+          t.jsxAttribute(
+            t.jsxIdentifier('data-line'),
+            t.stringLiteral(line.toString())
+          )
+        );
+        
+        // Add clickable attribute only if explicitly enabled
+        if (clickable) {
+          path.node.openingElement.attributes.unshift(
+            t.jsxAttribute(
+              t.jsxIdentifier('data-clickable'),
+              t.stringLiteral("true")
             )
           );
         }

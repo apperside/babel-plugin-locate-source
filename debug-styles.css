@@ -10,6 +10,17 @@
   position: relative;
 }
 
+/* Create invisible area to extend hover target area */
+*[data-at]::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Hover gap height */
+  pointer-events: none;
+}
+
 /* Add component info tooltip on hover */
 *[data-at]:hover::after {
   content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ')';
@@ -26,6 +37,30 @@
   z-index: 10000;
   pointer-events: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* For clickable elements, style differently and make the entire element clickable */
+*[data-clickable="true"] {
+  cursor: pointer;
+}
+
+*[data-clickable="true"]:hover::after {
+  content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ') 🔗';
+}
+
+/* Special styles for picker mode */
+.locate-source-picker-active * {
+  cursor: crosshair !important;
+}
+
+.locate-source-picker-active [data-at]:hover {
+  outline: 2px solid #f44336 !important;
+  outline-offset: 2px !important;
+}
+
+.locate-source-picker-active [data-at]:hover::after {
+  content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ') 🔗';
+  background-color: #f44336;
 }
 
 /* Stop propagation of hover effects to parent elements */
@@ -76,5 +111,96 @@
 }
 
 *[data-at]:has(*[data-at]:hover)::after {
+  display: none !important;
+}
+
+/* Style the control buttons */
+#locate-source-settings-toggle, 
+#locate-source-picker-toggle {
+  position: fixed;
+  bottom: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+#locate-source-settings-toggle {
+  right: 10px;
+  background: #333;
+  color: white;
+}
+
+#locate-source-picker-toggle {
+  right: 56px;
+  background: #333;
+  color: white;
+  border: none;
+}
+
+/* Style when picker mode is active */
+#locate-source-picker-toggle.active {
+  background-color: #2196f3;
+  animation: picker-pulse 1.5s infinite;
+  border: 3px solid #1976d2 !important;
+  box-shadow: 0 0 0 4px rgba(33,150,243,0.3), 0 2px 5px rgba(33,150,243,0.5) !important;
+}
+
+/* Remove clickable-active styling as we're simplifying */
+#locate-source-picker-toggle.clickable-active {
+  border: none;
+  background: #333;
+  box-shadow: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+@keyframes picker-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(33,150,243,0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(33,150,243,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(33,150,243,0);
+  }
+}
+
+/* Style the settings panel */
+#locate-source-settings {
+  position: fixed;
+  bottom: 56px;
+  right: 10px;
+  background: #333;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 12px;
+  z-index: 10000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  display: none;
+}
+
+/* Add a script tag to initialize clickable functionality */
+script#locate-source-click-handler {
   display: none !important;
 } 

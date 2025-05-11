@@ -18,7 +18,10 @@ export default defineConfig({
              * you can pass the enabled parameter to fit your custom rules
              */
             "babel-plugin-locate-source",
-            { enabled: true },
+            { 
+              enabled: true,
+              clickable: true // Enable clickable source locations
+            },
           ],
         ],
       },
