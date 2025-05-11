@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This is a custom babel plugin that adds the following HTML attributes to JSX elements in development mode:
+
+- `data-at`: The source file and line numbers (e.g., "Button.tsx:42-45")
+- `data-is`: The component name (e.g., "Button")
+- `data-in`: The parent component where this JSX appears (e.g., "Header")
+
+so you will never waste time again guessing from which point of your source code is coming a specific DOM element
