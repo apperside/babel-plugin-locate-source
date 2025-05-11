@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-locate-source",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Babel plugin to add source file and line information to JSX elements so that you will be able to instantly locate th exact source code location for any html element",
   "type": "commonjs",
   "main": "dist/index.js",
