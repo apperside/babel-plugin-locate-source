@@ -82,6 +82,19 @@ module.exports = function debugSourcePlugin(babel, options = {}) {
         // Store the full path for clickable links
         const fullPath = filename;
         
+        // Check if attributes already exist to prevent duplicates
+        const existingAttributes = path.node.openingElement.attributes;
+        const hasDataAt = existingAttributes.some(attr => 
+          t.isJSXAttribute(attr) && 
+          t.isJSXIdentifier(attr.name) && 
+          attr.name.name === 'data-at'
+        );
+        
+        // Skip if attributes already exist (prevents duplicate processing)
+        if (hasDataAt) {
+          return;
+        }
+        
         // Add data attributes to the JSX element (following Tamagui's pattern)
         path.node.openingElement.attributes.unshift(
           t.jsxAttribute(

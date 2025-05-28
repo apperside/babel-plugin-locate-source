@@ -15,6 +15,9 @@ When enabled, this plugin adds the following HTML attributes to JSX elements in 
 - `data-at`: The source file and line numbers (e.g., "Button.tsx:42-45")
 - `data-is`: The component name (e.g., "Button")
 - `data-in`: The parent component where this JSX appears (e.g., "Header")
+- `data-filepath`: The full file path for IDE integration
+- `data-line`: The starting line number
+- `data-clickable`: Added when clickable feature is enabled (value: "true")
 
 <div align="center">
   <img src="landing-page/images/debug-styles-preview.png" alt="Debug preview" width="600" />
@@ -93,7 +96,7 @@ module.exports = {
      * 
      * you can pass the enabled parameter to fit your custom rules
      */
-    ["babel-plugin-whereis", { enabled: true }]
+    ["babel-plugin-locate-source", { enabled: true }]
   ]
 };
 ```
@@ -120,15 +123,26 @@ When using this plugin with Next.js, be aware that it will disable the [SWC comp
 
 The plugin accepts the following options:
 
-```js
+### `enabled` (boolean)
+- **Default**: `process.env.NODE_ENV === 'development'`
+- **Description**: Controls whether the plugin is active
+- **Usage**: Set to `true` to force enable, `false` to force disable, or omit to use automatic detection
+
+### `clickable` (boolean)
+- **Default**: `false`
+- **Description**: Enables interactive features for clicking elements to open source files in your IDE
+- **Usage**: Set to `true` to enable clickable tooltips and element picker functionality
+
+### Configuration Examples
+
+**Basic usage (auto-enabled in development):**
+```json
 {
-  "enabled": true, // Defaults to true if process.env.NODE_ENV is "development"
-  "clickable": false // When true, makes source locations clickable to open in IDE
+  "plugins": ["babel-plugin-locate-source"]
 }
 ```
 
-You can configure the plugin in your Babel configuration:
-
+**Force enable with clickable features:**
 ```json
 {
   "plugins": [
@@ -139,6 +153,48 @@ You can configure the plugin in your Babel configuration:
   ]
 }
 ```
+
+**Force disable:**
+```json
+{
+  "plugins": [
+    ["babel-plugin-locate-source", {
+      "enabled": false
+    }]
+  ]
+}
+```
+
+**Environment-specific configuration:**
+```json
+{
+  "env": {
+    "development": {
+      "plugins": [
+        ["babel-plugin-locate-source", { "clickable": true }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["babel-plugin-locate-source", { "enabled": false }]
+      ]
+    }
+  }
+}
+```
+
+### Data Attributes Added
+
+When the plugin is enabled, it adds the following data attributes to each JSX element:
+
+| Attribute | Description | Example Value |
+|-----------|-------------|---------------|
+| `data-at` | Source file and line range | `"Button.tsx:42-45"` |
+| `data-is` | Component/element name | `"Button"` or `"div"` |
+| `data-in` | Parent component name | `"HomePage"` |
+| `data-filepath` | Full file path | `"/src/components/Button.tsx"` |
+| `data-line` | Starting line number | `"42"` |
+| `data-clickable` | Clickable feature flag | `"true"` (only when `clickable: true`) |
 
 ### Using Clickable Source Locations
 
@@ -196,6 +252,7 @@ For more detailed information about the clickable feature, see [CLICKABLE.md](CL
 - ✅ Zero runtime performance impact in production
 - ✅ Optional clickable source locations that open files directly in your IDE
 - ✅ Interactive element picker to quickly locate any component's source
+- ✅ Prevents duplicate attributes when plugin runs multiple times
 
 ## 🔧 How It Helps
 
