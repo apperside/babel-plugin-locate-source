@@ -161,7 +161,7 @@ export const ComplexApp = () => {
     <div className="app-container">
       <header className="app-header">
         <h1>Complex Component Structure</h1>
-        <p>Testing the clickable feature with nested components</p>
+        <p>Testing the devTools feature with nested components</p>
       </header>
       <div className="app-body">
         <DynamicList items={items} />
@@ -189,8 +189,8 @@ async function runTest(testCase, options = {}) {
   if (options.enabled !== undefined) {
     console.log(`Plugin enabled: ${options.enabled}`);
   }
-  if (options.clickable !== undefined) {
-    console.log(`Clickable feature: ${options.clickable}`);
+  if (options.devTools !== undefined) {
+    console.log(`Clickable feature: ${options.devTools}`);
   }
   if (options.env) {
     console.log(`NODE_ENV: ${options.env}`);
@@ -243,8 +243,8 @@ async function runTest(testCase, options = {}) {
     // Generate unique output filename based on options
     let outputFileName = `transformed-${path.basename(testCase.filename, '.jsx')}`;
     outputFileName += options.enabled ? '-enabled' : '-disabled';
-    if (options.clickable) {
-      outputFileName += '-clickable';
+    if (options.devTools) {
+      outputFileName += '-dev-tools';
     }
     if (options.env) {
       outputFileName += `-${options.env}`;
@@ -259,14 +259,14 @@ async function runTest(testCase, options = {}) {
     const shouldHaveAttributes = options.enabled === true || 
                                (options.enabled === undefined && options.env === 'development');
     
-    const shouldHaveClickable = shouldHaveAttributes && options.clickable === true;
+    const shouldHaveClickable = shouldHaveAttributes && options.devTools === true;
     
     const basicAttributesPresent = hasDataAt && hasDataIs && hasDataIn;
     const clickableAttributesPresent = hasDataFilepath && hasDataLine;
     const clickableFlagPresent = hasDataClickable;
     
     const basicAttributesMatch = basicAttributesPresent === shouldHaveAttributes;
-    const clickableAttributesMatch = clickableAttributesPresent === shouldHaveAttributes; // These should be present even if clickable=false
+    const clickableAttributesMatch = clickableAttributesPresent === shouldHaveAttributes; // These should be present even if devTools=false
     const clickableFlagMatch = clickableFlagPresent === shouldHaveClickable;
     
     let testPassed = basicAttributesMatch && clickableAttributesMatch && clickableFlagMatch;
@@ -280,7 +280,7 @@ async function runTest(testCase, options = {}) {
     }
     
     if (!clickableFlagMatch) {
-      console.log(`❌ Expected clickable flag to be ${shouldHaveClickable ? 'present' : 'missing'}, but it was ${clickableFlagPresent ? 'present' : 'missing'}`);
+      console.log(`❌ Expected devTools flag to be ${shouldHaveClickable ? 'present' : 'missing'}, but it was ${clickableFlagPresent ? 'present' : 'missing'}`);
     }
 
     return testPassed;
@@ -290,16 +290,16 @@ async function runTest(testCase, options = {}) {
   }
 }
 
-// Function to run a more detailed check for the clickable feature
+// Function to run a more detailed check for the devTools feature
 async function testClickableFeature() {
-  console.log('\nRunning detailed test for clickable feature');
+  console.log('\nRunning detailed test for devTools feature');
   console.log('='.repeat(50));
   
   // Get the complex test case
   const complexTest = testCases.find(test => test.name === 'Clickable feature test with complex structure');
   
   if (!complexTest) {
-    console.error('❌ Could not find complex test case for clickable feature');
+    console.error('❌ Could not find complex test case for devTools feature');
     return false;
   }
   
@@ -310,7 +310,7 @@ async function testClickableFeature() {
     
     const result = await babel.transformAsync(complexTest.code, {
       plugins: [
-        [path.resolve(__dirname, 'index.js'), { enabled: true, clickable: true }]
+        [path.resolve(__dirname, 'index.js'), { enabled: true, devTools: true }]
       ],
       presets: ['@babel/preset-react'],
       filename: complexTest.filename,
@@ -360,7 +360,7 @@ async function testClickableFeature() {
     console.log(`\nReact.createElement calls: ${creationCount}`);
     console.log(`Transformed output saved to ${outputFile}`);
     
-    // Verify all elements have the clickable attributes
+    // Verify all elements have the devTools attributes
     const allAttributesPresent = dataAtCount > 0 &&
                                dataAtCount === dataIsCount && 
                                dataAtCount === dataFilepathCount && 
@@ -394,7 +394,7 @@ async function testClickableFeature() {
     
     return allAttributesPresent && allElementsHaveAttributes;
   } catch (error) {
-    console.error('❌ Error testing clickable feature:', error);
+    console.error('❌ Error testing devTools feature:', error);
     return false;
   }
 }
@@ -445,28 +445,28 @@ async function runAllTests() {
     allPassed = allPassed && passed;
   }
   
-  // Test with clickable=true
+  // Test with devTools=true
   for (const testCase of testCases) {
     const passed = await runTest(testCase, { enabled: true, clickable: true });
     testResults.clickableEnabled.push({ name: testCase.name, passed });
     allPassed = allPassed && passed;
   }
   
-  // Test with clickable=true in development environment
+  // Test with devTools=true in development environment
   for (const testCase of testCases) {
-    const passed = await runTest(testCase, { env: 'development', clickable: true });
+    const passed = await runTest(testCase, { env: 'development', devTools: true });
     testResults.clickableDevelopment.push({ name: testCase.name, passed });
     allPassed = allPassed && passed;
   }
   
-  // Test with clickable=true but enabled=false (should not add any attributes)
+  // Test with devTools=true but enabled=false (should not add any attributes)
   for (const testCase of testCases) {
-    const passed = await runTest(testCase, { enabled: false, clickable: true });
+    const passed = await runTest(testCase, { enabled: false, devTools: true });
     testResults.clickableDisabled.push({ name: testCase.name, passed });
     allPassed = allPassed && passed;
   }
   
-  // Run detailed test for clickable feature
+  // Run detailed test for devTools feature
   const clickableTestPassed = await testClickableFeature();
   allPassed = allPassed && clickableTestPassed;
 
@@ -486,9 +486,9 @@ async function runAllTests() {
   console.log(`- In production: ${countPassed(testResults.production)}/${testResults.production.length} tests passed`);
   
   console.log('\nClickable feature:');
-  console.log(`- When enabled with clickable: ${countPassed(testResults.clickableEnabled)}/${testResults.clickableEnabled.length} tests passed`);
-  console.log(`- In development with clickable: ${countPassed(testResults.clickableDevelopment)}/${testResults.clickableDevelopment.length} tests passed`);
-  console.log(`- When disabled with clickable: ${countPassed(testResults.clickableDisabled)}/${testResults.clickableDisabled.length} tests passed`);
+  console.log(`- When enabled with devTools: ${countPassed(testResults.clickableEnabled)}/${testResults.clickableEnabled.length} tests passed`);
+  console.log(`- In development with devTools: ${countPassed(testResults.clickableDevelopment)}/${testResults.clickableDevelopment.length} tests passed`);
+  console.log(`- When disabled with devTools: ${countPassed(testResults.clickableDisabled)}/${testResults.clickableDisabled.length} tests passed`);
   console.log(`- Detailed element count test: ${clickableTestPassed ? 'PASSED' : 'FAILED'}`);
   
   console.log('\nOverall result:');

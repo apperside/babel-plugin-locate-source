@@ -20,7 +20,7 @@ export default defineConfig({
             "babel-plugin-locate-source",
             { 
               enabled: true,
-              clickable: true // Enable clickable source locations
+              devTools: true // Enable dev tools source locations
             },
           ],
         ],

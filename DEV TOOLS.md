@@ -27,13 +27,13 @@ module.exports = {
 ```html
 <!-- In your HTML or in your app's global imports -->
 <link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
-<script src="node_modules/babel-plugin-locate-source/locate-source-clickable.js"></script>
+<script src="node_modules/babel-plugin-locate-source/dev-tools.js"></script>
 ```
 
 For production environments, you can use the minified version from the dist directory:
 
 ```html
-<script src="node_modules/babel-plugin-locate-source/dist/locate-source-clickable.js"></script>
+<script src="node_modules/babel-plugin-locate-source/dist/dev-tools.js"></script>
 ```
 
 For bundlers like webpack, you can import these files in your entry point:
@@ -41,7 +41,7 @@ For bundlers like webpack, you can import these files in your entry point:
 ```js
 // In your app entry point
 import 'babel-plugin-locate-source/debug-styles.css';
-import 'babel-plugin-locate-source/locate-source-clickable.js';
+import 'babel-plugin-locate-source/dev-tools.js';
 ```
 
 ## Usage
@@ -74,7 +74,7 @@ The JavaScript handler uses these attributes to construct a URI that opens the f
 
 ## Customization
 
-You can modify the `locate-source-clickable.js` file to add support for additional IDEs or customize the behavior.
+You can modify the `dev-tools.js` file to add support for additional IDEs or customize the behavior.
 
 ## Browser Support
 

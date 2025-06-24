@@ -17,7 +17,7 @@ When enabled, this plugin adds the following HTML attributes to JSX elements in 
 - `data-in`: The parent component where this JSX appears (e.g., "Header")
 - `data-filepath`: The full file path for IDE integration
 - `data-line`: The starting line number
-- `data-clickable`: Added when clickable feature is enabled (value: "true")
+- `data-clickable`: Added when devTools feature is enabled (value: "true")
 
 <div align="center">
   <img src="landing-page/images/debug-styles-preview.png" alt="Debug preview" width="600" />
@@ -128,7 +128,7 @@ The plugin accepts the following options:
 - **Description**: Controls whether the plugin is active
 - **Usage**: Set to `true` to force enable, `false` to force disable, or omit to use automatic detection
 
-### `clickable` (boolean)
+### `devTools` (boolean)
 - **Default**: `false`
 - **Description**: Enables interactive features for clicking elements to open source files in your IDE
 - **Usage**: Set to `true` to enable clickable tooltips and element picker functionality
@@ -142,13 +142,13 @@ The plugin accepts the following options:
 }
 ```
 
-**Force enable with clickable features:**
+**Force enable with devTools features:**
 ```json
 {
   "plugins": [
     ["babel-plugin-locate-source", {
       "enabled": true,
-      "clickable": true
+      "devTools": true
     }]
   ]
 }
@@ -171,7 +171,7 @@ The plugin accepts the following options:
   "env": {
     "development": {
       "plugins": [
-        ["babel-plugin-locate-source", { "clickable": true }]
+        ["babel-plugin-locate-source", { "devTools": true }]
       ]
     },
     "production": {
@@ -194,25 +194,25 @@ When the plugin is enabled, it adds the following data attributes to each JSX el
 | `data-in` | Parent component name | `"HomePage"` |
 | `data-filepath` | Full file path | `"/src/components/Button.tsx"` |
 | `data-line` | Starting line number | `"42"` |
-| `data-clickable` | Clickable feature flag | `"true"` (only when `clickable: true`) |
+| `data-clickable` | Clickable feature flag | `"true"` (only when `devTools: true`) |
 
 ### Using Clickable Source Locations
 
-When the `clickable` option is enabled, you'll need to:
+When the `devTools` option is enabled, you'll need to:
 
 1. Include the `debug-styles.css` file in your project
-2. Include the `locate-source-clickable.js` script in your project
+2. Include the `dev-tools.js` script in your project
 
 ```html
 <!-- In your HTML or component that loads globally -->
 <link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
-<script src="node_modules/babel-plugin-locate-source/locate-source-clickable.js"></script>
+<script src="node_modules/babel-plugin-locate-source/dev-tools.js"></script>
 ```
 
 Or you can use the minified version from the dist directory:
 
 ```html
-<script src="node_modules/babel-plugin-locate-source/dist/locate-source-clickable.js"></script>
+<script src="node_modules/babel-plugin-locate-source/dist/dev-tools.js"></script>
 ```
 
 This will allow you to click on the component info tooltip to open the source file directly in your IDE. 
@@ -225,7 +225,7 @@ editor through a settings panel that appears in the bottom-right corner of your 
 
 #### IDE Support
 
-The clickable feature works with the following editors:
+The devTools feature works with the following editors:
 - VS Code (default)
 - IntelliJ IDEA
 - Atom
@@ -234,14 +234,14 @@ The clickable feature works with the following editors:
 
 #### How to Use
 
-1. Enable the clickable feature in your Babel config
+1. Enable the devTools feature in your Babel config
 2. Include the necessary CSS and JS files
 3. Hover over any component to see its information tooltip
 4. Click on the tooltip to open the source file in your preferred editor
 5. Use the settings gear (⚙️) in the bottom-right corner to configure your editor preference
 6. Use the target icon (🎯) to enter "picker mode" for clicking any element to open its source
 
-For more detailed information about the clickable feature, see [CLICKABLE.md](CLICKABLE.md).
+For more detailed information about the devTools feature, see [CLICKABLE.md](CLICKABLE.md).
 
 ## ✨ Features
 
@@ -250,7 +250,7 @@ For more detailed information about the clickable feature, see [CLICKABLE.md](CL
 - ✅ Provides file path, line numbers, component name, and parent component info
 - ✅ Automatically disabled in production builds
 - ✅ Zero runtime performance impact in production
-- ✅ Optional clickable source locations that open files directly in your IDE
+- ✅ Optional devTools source locator that open files directly in your IDE
 - ✅ Interactive element picker to quickly locate any component's source
 - ✅ Prevents duplicate attributes when plugin runs multiple times
 
@@ -269,7 +269,7 @@ This makes it much easier to:
 1. Identify which component is rendering what markup
 2. Locate the exact file and line number where the component is defined
 3. Understand component hierarchy and nesting relationships
-4. **Jump directly to the source code** with the clickable feature
+4. **Jump directly to the source code** with the devTools feature
 
 <div align="center">
   <img src="landing-page/images/app-screenshot.png" alt="Application screenshot" width="600" />

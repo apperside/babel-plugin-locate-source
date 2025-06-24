@@ -28,7 +28,7 @@ const TestComponent = () => {
     console.log('Running first transformation...');
     const firstResult = await babel.transformAsync(testCode, {
       plugins: [
-        [path.resolve(__dirname, 'index.js'), { enabled: true, clickable: true }]
+        [path.resolve(__dirname, 'index.js'), { enabled: true, devTools: true }]
       ],
       presets: ['@babel/preset-react'],
       filename: 'test-duplicate.jsx',
@@ -45,7 +45,7 @@ const TestComponent = () => {
     console.log('Running second transformation on already transformed code...');
     const secondResult = await babel.transformAsync(firstOutput, {
       plugins: [
-        [path.resolve(__dirname, 'index.js'), { enabled: true, clickable: true }]
+        [path.resolve(__dirname, 'index.js'), { enabled: true, devTools: true }]
       ],
       presets: ['@babel/preset-react'],
       filename: 'test-duplicate.jsx',

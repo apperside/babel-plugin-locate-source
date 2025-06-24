@@ -26,7 +26,7 @@
                     <a href="#how-it-works">How It Works</a>
                     <a href="#examples">Examples</a>
                     <a href="#installation">Installation</a>
-                    <a href="#clickable">Clickable Source</a>
+                    <a href="#devTools">Clickable Source</a>
                     <a href="https://github.com/apperside/babel-plugin-locate-source" class="github-link">
                         <i class="fab fa-github"></i> GitHub
                     </a>
@@ -296,23 +296,23 @@ function toggleDebugMode() {
         </div>
     </section>
 
-    <section class="clickable-feature" id="clickable">
+    <section class="devTools-feature" id="devTools">
         <div class="container">
             <h2>Jump to Source Code with a Click</h2>
             <div class="feature-highlight">
                 <div class="feature-content">
                     <h3>Open Source Files Directly from Your Browser</h3>
-                    <p>Enable the clickable feature to jump straight from your browser to the exact line of code in your favorite editor.</p>
+                    <p>Enable the devTools feature to jump straight from your browser to the exact line of code in your favorite editor.</p>
                     <div class="code-snippet">
-                        <pre><code>// Enable clickable source locations in your config
+                        <pre><code>// Enable devTools source locations in your config
 ["babel-plugin-locate-source", {
   enabled: true,
-  clickable: true  // This enables the clickable feature
+  devTools: true  // This enables the devTools feature
 }]
 
 // Include the required files in your app
 import 'babel-plugin-locate-source/debug-styles.css';
-import 'babel-plugin-locate-source/locate-source-clickable.js';</code></pre>
+import 'babel-plugin-locate-source/dev-tools.js';</code></pre>
                     </div>
                     <ul class="feature-list">
                         <li><i class="fas fa-check-circle"></i> Works with VS Code, IntelliJ, Atom, Sublime Text, and Cursor</li>
@@ -349,7 +349,7 @@ import 'babel-plugin-locate-source/locate-source-clickable.js';</code></pre>
             <div class="feature-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div class="step-description">Enable the clickable option in your Babel config</div>
+                    <div class="step-description">Enable the devTools option in your Babel config</div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -378,7 +378,7 @@ import 'babel-plugin-locate-source/locate-source-clickable.js';</code></pre>
                     <a href="https://github.com/apperside/babel-plugin-locate-source/issues">Issues</a>
                     <a href="#installation">Installation</a>
                     <a href="#features">Features</a>
-                    <a href="#clickable">Clickable Source</a>
+                    <a href="#devTools">Clickable Source</a>
                 </div>
             </div>
             <div class="footer-copyright">

@@ -17,12 +17,12 @@
 <body>
   <div id="root"></div>
   
-  <!-- Include the clickable script for IDE integration -->
+  <!-- Include the dev tools script for IDE integration -->
   <!-- Development version: -->
-  <script src="node_modules/babel-plugin-locate-source/locate-source-clickable.js"></script>
+  <script src="node_modules/babel-plugin-locate-source/dev-tools.js"></script>
   
   <!-- Production/minified version: -->
-  <!-- <script src="node_modules/babel-plugin-locate-source/dist/locate-source-clickable.js"></script> -->
+  <!-- <script src="node_modules/babel-plugin-locate-source/dist/dev-tools.js"></script> -->
   
   <!-- Your application script -->
   <script type="module" src="/src/main.jsx"></script>
@@ -32,9 +32,9 @@
     In your entry file (e.g., main.jsx):
     
     import 'babel-plugin-locate-source/debug-styles.css';
-    import 'babel-plugin-locate-source/locate-source-clickable.js';
+    import 'babel-plugin-locate-source/dev-tools.js';
     // Or for the minified version:
-    // import 'babel-plugin-locate-source/dist/locate-source-clickable.js';
+    // import 'babel-plugin-locate-source/dist/dev-tools.js';
     
     // Then your app code
     import React from 'react';

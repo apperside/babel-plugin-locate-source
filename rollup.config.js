@@ -39,21 +39,22 @@ module.exports = [
       })
     ]
   },
-  // Build locate-source-clickable.js
+  // Build dev-tools.js
   {
-    input: 'locate-source-clickable.js',
+    input: 'dev-tools.js',
     output: {
-      file: 'dist/locate-source-clickable.js',
+      file: 'dist/dev-tools.js',
       format: 'iife', // Immediately Invoked Function Expression format
-      sourcemap: true
+      sourcemap: true,
+      
     },
-    plugins: [
-      terser({
-        format: {
-          comments: 'some',
-          preserve_annotations: true
-        }
-      })
-    ]
+    // plugins: [
+    //   terser({
+    //     format: {
+    //       comments: 'some',
+    //       preserve_annotations: true
+    //     }
+    //   })
+    // ]
   }
 ]; 

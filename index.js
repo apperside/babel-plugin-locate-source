@@ -6,7 +6,7 @@ module.exports = function debugSourcePlugin(babel, options = {}) {
   const { types: t } = babel;
   const { 
     enabled = process.env.NODE_ENV === 'development',
-    clickable = false 
+    devTools = false 
   } = options;
   
   return {
@@ -135,7 +135,7 @@ module.exports = function debugSourcePlugin(babel, options = {}) {
         );
         
         // Add clickable attribute only if explicitly enabled
-        if (clickable) {
+        if (devTools) {
           path.node.openingElement.attributes.unshift(
             t.jsxAttribute(
               t.jsxIdentifier('data-clickable'),

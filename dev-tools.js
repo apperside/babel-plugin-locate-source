@@ -1,6 +1,6 @@
 /**
- * JavaScript handler for clickable source locations
- * This file should be included in your project when using the 'clickable' option
+ * JavaScript handler for dev tools source locations
+ * This file should be included in your project when using the 'devTools' option
  */
 (function () {
     if (typeof window == "undefined") return;

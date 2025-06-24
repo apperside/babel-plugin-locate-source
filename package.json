@@ -8,7 +8,7 @@
   "files": [
     "dist",
     "debug-styles.css",
-    "locate-source-clickable.js",
+    "dev-tools.js",
     "CLICKABLE.md",
     "README.md"
   ],
@@ -35,8 +35,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && rollup -c",
-    "build:clickable": "rollup -c --input locate-source-clickable.js --file dist/locate-source-clickable.js --format iife",
-    "prepublishOnly": "npm run test && npm run build",
+    "build:dev-tools": "rollup -c --input dev-tools.js --file dist/dev-tools.js --format iife",
+    "prepublishOnly": "npm run test && npm run build:dev-tools",
     "test": "node test.js"
   }
 }
