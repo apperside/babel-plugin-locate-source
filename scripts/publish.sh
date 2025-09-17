@@ -2,8 +2,8 @@ npm run build
 npm version patch
 cp package.json dist/package.json
 cp README.md dist/README.md
-cp debug-styles.css dist/debug-styles.css
+cp dev-tools.css dist/dev-tools.css
 cp DEBUGGING.md dist/DEBUGGING.md
-cp "DEV TOOLS.md" "dist/DEV 3TOOLS.md"
+cp "DEV TOOLS.md" "dist/DEV TOOLS.md"
 cd dist
 npm publish

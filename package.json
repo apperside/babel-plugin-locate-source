@@ -6,10 +6,11 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
-    "dist",
+    "index.js",
+    "index.esm.js",
     "dev-tools.css",
     "dev-tools.js",
-    "CLICKABLE.md",
+    "DEV TOOLS.md",
     "README.md"
   ],
   "author": "You",
