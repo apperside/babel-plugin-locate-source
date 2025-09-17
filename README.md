@@ -200,12 +200,12 @@ When the plugin is enabled, it adds the following data attributes to each JSX el
 
 When the `devTools` option is enabled, you'll need to:
 
-1. Include the `debug-styles.css` file in your project
+1. Include the `dev-tools.css` file in your project
 2. Include the `dev-tools.js` script in your project
 
 ```html
 <!-- In your HTML or component that loads globally -->
-<link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
+<link rel="stylesheet" href="node_modules/babel-plugin-locate-source/dev-tools.css">
 <script src="node_modules/babel-plugin-locate-source/dev-tools.js"></script>
 ```
 

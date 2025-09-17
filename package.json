@@ -7,7 +7,7 @@
   "module": "dist/index.esm.js",
   "files": [
     "dist",
-    "debug-styles.css",
+    "dev-tools.css",
     "dev-tools.js",
     "CLICKABLE.md",
     "README.md"
@@ -22,9 +22,6 @@
     "debug",
     "source-map"
   ],
-  "peerDependencies": {
-    "@babel/core": "^7.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-react": "^7.23.3",

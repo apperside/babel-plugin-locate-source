@@ -1,10 +1,10 @@
 # Clickable Source Locations
 
-This document explains how to use the clickable source locations feature of the babel-plugin-locate-source.
+This document explains how to use the dev tools feature of the babel-plugin-locate-source.
 
 ## Overview
 
-The clickable source locations feature allows you to click on the component info tooltip to open the source file directly in your preferred IDE. This can significantly speed up your development workflow by eliminating the need to manually locate files.
+The dev tools feature allows you to click on the component info tooltip to open the source file directly in your preferred IDE. This can significantly speed up your development workflow by eliminating the need to manually locate files.
 
 ## Setup
 
@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     ["babel-plugin-locate-source", {
       enabled: true,
-      clickable: true  // Enable clickable source locations
+      devTools: true  // Enable dev tools feature
     }]
   ]
 };
@@ -26,21 +26,21 @@ module.exports = {
 
 ```html
 <!-- In your HTML or in your app's global imports -->
-<link rel="stylesheet" href="node_modules/babel-plugin-locate-source/debug-styles.css">
+<link rel="stylesheet" href="node_modules/babel-plugin-locate-source/dev-tools.css">
 <script src="node_modules/babel-plugin-locate-source/dev-tools.js"></script>
 ```
 
-For production environments, you can use the minified version from the dist directory:
+For production environments, you can use the minified version from the dist directory (recommended):
 
 ```html
-<script src="node_modules/babel-plugin-locate-source/dist/dev-tools.js"></script>
+<script src="node_modules/babel-plugin-locate-source/dist/dev-tools.min.js"></script>
 ```
 
-For bundlers like webpack, you can import these files in your entry point:
+For bundlers like webpack, you can import these files in your entry point (recommended):
 
 ```js
 // In your app entry point
-import 'babel-plugin-locate-source/debug-styles.css';
+import 'babel-plugin-locate-source/dev-tools.css';
 import 'babel-plugin-locate-source/dev-tools.js';
 ```
 

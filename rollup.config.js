@@ -1,4 +1,5 @@
 const { terser } = require('rollup-plugin-terser');
+const { copyFileSync } = require('fs');
 const pkg = require('./package.json');
 
 module.exports = [
@@ -48,13 +49,13 @@ module.exports = [
       sourcemap: true,
       
     },
-    // plugins: [
-    //   terser({
-    //     format: {
-    //       comments: 'some',
-    //       preserve_annotations: true
-    //     }
-    //   })
-    // ]
+    plugins: [
+      terser({
+        format: {
+          comments: 'some',
+          preserve_annotations: true
+        }
+      })
+    ]
   }
 ]; 

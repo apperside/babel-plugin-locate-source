@@ -9,4 +9,6 @@ This is a custom babel plugin that adds the following HTML attributes to JSX ele
 - `data-is`: The component name (e.g., "Button")
 - `data-in`: The parent component where this JSX appears (e.g., "Header")
 
-so you will never waste time again guessing from which point of your source code is coming a specific DOM element
+so you will never waste time again guessing from which point of your source code is coming a specific DOM element.
+
+Moreover, this babel plugin comes with pluggable developer tools, that allows to click on any element and open the file directly in the ide

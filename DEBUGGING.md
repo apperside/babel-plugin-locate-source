@@ -143,16 +143,16 @@ module.exports = function debugSourcePlugin(babel) {
 
 ## Using the Debug Styles
 
-To make it even easier to visualize your components, you can add the included debug-styles.css to your project:
+To make it even easier to visualize your components, you can add the included dev-tools.css to your project:
 
 ```jsx
 // Only in development mode
 if (process.env.NODE_ENV === 'development') {
-  require('./debug-styles.css');
+  require('./dev-tools.css');
 }
 
 // For Vite, you can import the CSS file directly:
-import './debug-styles.css';
+import './dev-tools.css';
 ```
 
 Then, you can add the `.debug-mode` class to your body element when you want to see all component outlines:
