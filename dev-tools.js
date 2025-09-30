@@ -7,6 +7,7 @@
     window.initLocateSourceClickHandlers = function () {
         // Track picker mode state
         let pickerModeActive = false;
+        let devToolsCssLink = null;
 
         // Simple click handler for when picker mode is active
         document.addEventListener('click', function (e) {
@@ -63,7 +64,25 @@
         // Function to toggle picker mode
         const setPickerMode = (active) => {
             pickerModeActive = active;
-            
+
+            // Add or remove dev-tools.css
+            if (active) {
+                // Add CSS link if not already added
+                if (!devToolsCssLink) {
+                    devToolsCssLink = document.createElement('link');
+                    devToolsCssLink.rel = 'stylesheet';
+                    devToolsCssLink.href = '/dev-tools.css';
+                    devToolsCssLink.id = 'locate-source-dev-tools-css';
+                    document.head.appendChild(devToolsCssLink);
+                }
+            } else {
+                // Remove CSS link
+                if (devToolsCssLink && devToolsCssLink.parentNode) {
+                    devToolsCssLink.parentNode.removeChild(devToolsCssLink);
+                    devToolsCssLink = null;
+                }
+            }
+
             // Update button state
             const pickerButton = document.getElementById('locate-source-picker-toggle');
             if (pickerButton) {
