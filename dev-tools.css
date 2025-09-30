@@ -7,26 +7,15 @@
 *[data-at]:hover {
   outline: 2px dashed rgba(255, 0, 0, 0.5) !important;
   outline-offset: 2px !important;
-  position: relative;
-}
-
-/* Create invisible area to extend hover target area */
-*[data-at]::before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  height: 30px; /* Hover gap height */
-  pointer-events: none;
 }
 
 /* Add component info tooltip on hover */
 *[data-at]:hover::after {
   content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ')';
-  position: absolute;
-  bottom: calc(100% + 4px);
-  left: 0;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #333;
   color: white;
   padding: 3px 6px;
@@ -46,6 +35,10 @@
 
 *[data-clickable="true"]:hover::after {
   content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ') 🔗';
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Special styles for picker mode */
@@ -61,6 +54,10 @@
 .locate-source-picker-active [data-at]:hover::after {
   content: attr(data-is) ' in ' attr(data-in) ' (' attr(data-at) ') 🔗';
   background-color: #f44336;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Stop propagation of hover effects to parent elements */
